@@ -6,7 +6,7 @@ import type { TokenDTO } from '../../contracts/identity/responses/token-dto';
 import type { RefreshTokenDTO } from '../../contracts/identity/commands/refresh-token-dto';
 
 export const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
