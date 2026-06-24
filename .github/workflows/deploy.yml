@@ -55,14 +55,14 @@ jobs:
           script: |
             set -e
 
-            # Navigate to where your docker-compose.yml file is
-            cd /root/shroomfall
+            # Navigate directly to your root home directory where compose.yml lives
+            cd /root
 
             echo "Pulling latest frontend image..."
             docker pull longdong123/shroomfall-studio-fe:latest
 
             echo "Hot-swapping frontend container..."
-            # Recreate only the frontend container without wiping databases or stopping the backend
-            docker compose up -d --no-deps --remove-orphans studio-fe
+            # Using -f compose.yml explicitly tells Docker which file to target
+            docker compose -f compose.yml up -d --no-deps --remove-orphans studio-fe
 
             echo "Deployment completed"
