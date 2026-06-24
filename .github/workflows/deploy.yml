@@ -18,7 +18,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 22.x # <-- Update this from 18.x to 22.x
+          cache: 'npm'
+          cache-dependency-path: blue-cat-studio/package-lock.json
 
       - name: Install dependencies
         run: |
