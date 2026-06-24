@@ -11,7 +11,7 @@ export const Header: React.FC<HeaderProps> = ({ username, role, onLogout }) => {
     <header style={{ height: '64px', backgroundColor: '#ffffff', borderBottom: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 32px' }}>
       {/* Search / Context Tracking */}
       <div style={{ color: '#64748b', fontSize: '14px', fontWeight: '500' }}>
-        Live Server  Workspace: <span style={{ color: '#0f172a', fontWeight: '600' }}>207.148.72.68</span>
+        Live Server Workspace: <span style={{ color: '#0f172a', fontWeight: '600' }}>207.148.72.68</span>
       </div>
 
       {/* Profile actions alignment */}
