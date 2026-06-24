@@ -1,0 +1,66 @@
+name: Build & Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies
+        run: |
+          cd blue-cat-studio
+          npm ci
+
+      - name: Build project
+        run: |
+          cd blue-cat-studio
+          npm run build
+
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t longdong123/shroomfall-studio-fe:latest -f blue-cat-studio/Dockerfile ./blue-cat-studio
+
+      - name: Push Docker image
+        run: docker push longdong123/shroomfall-studio-fe:latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            set -e
+
+            # Navigate to where your docker-compose.yml file is
+            cd /root/shroomfall
+
+            echo "Pulling latest frontend image..."
+            docker pull longdong123/shroomfall-studio-fe:latest
+
+            echo "Hot-swapping frontend container..."
+            # Recreate only the frontend container without wiping databases or stopping the backend
+            docker compose up -d --no-deps --remove-orphans studio-fe
+
+            echo "Deployment completed"
