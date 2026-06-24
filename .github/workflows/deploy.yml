@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd blue-cat-studio
-          npm ci
+          npm install
 
       - name: Build project
         run: |
