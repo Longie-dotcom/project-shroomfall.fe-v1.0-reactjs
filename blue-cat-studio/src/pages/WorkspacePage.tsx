@@ -1,5 +1,5 @@
 import React from 'react';
-import { WorkspaceLayout } from '../components/layout/WorkspaceLayout';
+import { WorkspaceLayout } from '../components/layout/Workspace/WorkspaceLayout';
 import type { UserSession } from '../models/UserSession';
 
 interface WorkspacePageProps {

@@ -4,15 +4,17 @@
  */
 
 import type { ComponentDefinitionDTO } from "./component-definition-dto";
+import type { CollisionShapeType } from "../../../enums/entity/collision-shape-type";
+import type { CollisionLayer } from "../../../enums/entity/collision-layer";
 
 export interface CollisionDefinitionDTO extends ComponentDefinitionDTO {
-  shapeType: string;
+  shapeType: CollisionShapeType;
   width: number;
   height: number;
   radius: number;
   isBlocking: boolean;
-  layer: string;
-  mask: string;
+  layer: CollisionLayer;
+  mask: CollisionLayer;
   offsetX: number;
   offsetY: number;
 }

@@ -1,0 +1,58 @@
+.header {
+  height: 64px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.serverStatus {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.ipAddress {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.profileActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userInfo {
+  text-align: right;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.role {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.disconnectButton {
+  padding: 8px 14px;
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.disconnectButton:hover {
+  background-color: #dc2626;
+}

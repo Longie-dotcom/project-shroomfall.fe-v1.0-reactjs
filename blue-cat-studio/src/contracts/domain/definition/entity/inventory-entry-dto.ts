@@ -3,9 +3,11 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+import type { ItemQuality } from "../../../enums/meta/item/item-quality";
+
 export interface InventoryEntryDTO {
-  iD: string;
+  iD?: string;
   definitionID: string;
   amount: number;
-  quality: string;
+  quality: ItemQuality;
 }

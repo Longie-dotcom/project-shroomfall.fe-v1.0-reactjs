@@ -4,7 +4,7 @@
  */
 
 export interface AttributeGrowthValueDTO {
-  iD: string;
+  iD?: string;
   level: number;
   growthValue: number;
 }

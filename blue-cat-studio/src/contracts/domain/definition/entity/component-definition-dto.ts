@@ -4,6 +4,7 @@
  */
 
 export interface ComponentDefinitionDTO {
-  iD: string;
+  iD?: string;
   entityDefinitionID: string;
+  componentType: string;
 }

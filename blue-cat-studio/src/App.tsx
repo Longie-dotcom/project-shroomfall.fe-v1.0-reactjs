@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createAppRouter } from './router';
 import { AUTH_KEYS } from './constants/auth.constants';
 import { parseTokenToSession } from './utils/auth.utils';
-import { ErrorToastContainer } from './components/common/ErrorToastContainer';
+import { ErrorToastContainer } from './components/common/ErrorToastContainer/ErrorToastContainer';
 import type { UserSession } from './models/UserSession';
 
 const queryClient = new QueryClient({

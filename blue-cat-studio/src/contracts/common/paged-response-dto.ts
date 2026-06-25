@@ -3,7 +3,9 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
-export interface UserConnectionChangedDTO {
-  userID: string;
-  activeConnectionCount: number;
+export interface PagedResponseDTO<T> {
+  items: T[];
+  pageNumber: number;
+  pageSize: number;
+  totalCount: number;
 }

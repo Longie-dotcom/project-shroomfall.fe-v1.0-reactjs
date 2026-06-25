@@ -1,0 +1,297 @@
+.container {
+  padding:24px;
+  font-family:system-ui,-apple-system,sans-serif;
+  color:#1e293b;
+  max-width:1400px;
+  margin:0 auto;
+  max-height:80vh;
+  overflow-y:auto;
+  scrollbar-width:none;
+}
+
+.container::-webkit-scrollbar {
+  display:none;
+}
+
+.dashboardHeader {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:24px;
+}
+
+.title {
+  font-size:24px;
+  font-weight:700;
+  color:#0f172a;
+  margin:0;
+}
+
+.primaryButton {
+  background:#3b82f6;
+  color:white;
+  border:none;
+  border-radius:4px;
+  padding:10px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.primaryButton:hover {
+  background:#2563eb;
+}
+
+.mainGrid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+
+@media (min-width:1024px) {
+  .mainGrid {
+    grid-template-columns:1fr 1fr;
+  }
+
+  .mainGrid.fullWidth {
+    grid-template-columns:1fr;
+  }
+}
+
+.panel {
+  background:white;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  padding:24px;
+}
+
+.panelTitle {
+  font-size:18px;
+  font-weight:600;
+  margin:0 0 16px;
+}
+
+.filterBar {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.filterInput,
+.filterSelect {
+  height:38px;
+  border:1px solid #cbd5e1;
+  border-radius:6px;
+  background:white;
+  color:#1e293b;
+  font-size:14px;
+  outline:none;
+}
+
+.filterInput {
+  min-width:240px;
+  padding:0 12px;
+}
+
+.filterSelect {
+  padding:0 36px 0 12px;
+  cursor:pointer;
+  appearance:none;
+}
+
+.filterInput:focus,
+.filterSelect:focus {
+  border-color:#3b82f6;
+  box-shadow:0 0 0 3px rgba(59,130,246,.1);
+}
+
+.tableWrapper {
+  overflow-x:auto;
+}
+
+.table {
+  width:100%;
+  border-collapse:collapse;
+  text-align:left;
+  font-size:14px;
+}
+
+.table th {
+  background:#f8fafc;
+  padding:12px;
+  color:#64748b;
+  font-weight:600;
+  border-bottom:2px solid #e2e8f0;
+}
+
+.table td {
+  padding:12px;
+  border-bottom:1px solid #e2e8f0;
+}
+
+.row {
+  transition:background-color .15s ease;
+}
+
+.row:hover {
+  background:#f1f5f9;
+}
+
+.selectedRow {
+  background:#eff6ff!important;
+}
+
+.createRow {
+  background:#f0f9ff;
+}
+
+.createRow:hover {
+  background:#e0f2fe;
+}
+
+.editableCell {
+  cursor:pointer;
+  padding:4px 8px;
+  height:32px;
+  vertical-align:middle;
+}
+
+.editableCell:hover:not(.createRowCell) {
+  background:#f8fafc;
+  outline:1px dashed #cbd5e1;
+}
+
+.inputBase,
+.idInput,
+.numberInput,
+.selectField {
+  width:100%;
+  height:24px;
+  border:none!important;
+  background:transparent!important;
+  font-family:inherit;
+  font-size:14px;
+  outline:none!important;
+  box-shadow:none!important;
+}
+
+.selectField {
+  cursor:pointer;
+  appearance:none!important;
+}
+
+.idInput {
+  font-weight:600;
+}
+
+.numberInput {
+  width:80px;
+  text-align:right;
+  appearance:textfield;
+  -moz-appearance:textfield;
+}
+
+.numberInput::-webkit-inner-spin-button,
+.numberInput::-webkit-outer-spin-button {
+  -webkit-appearance:none;
+}
+
+.idDisplay,
+.dimmedText,
+.badge,
+.textValue {
+  display:block;
+  height:24px;
+  line-height:24px;
+  font-size:14px;
+  white-space:nowrap;
+}
+
+.idDisplay {
+  font-weight:600;
+  color:#0f172a;
+}
+
+.dimmedText {
+  color:#94a3b8;
+  font-style:italic;
+}
+
+.badge {
+  font-size:11px;
+  padding:2px 6px;
+  border-radius:4px;
+  background:#f1f5f9;
+  color:#64748b;
+  font-weight:500;
+}
+
+.activeBadge {
+  background:#dbeafe;
+  color:#1e40af;
+}
+
+.textValue {
+  color:#1e293b;
+}
+
+.badgeContainer {
+  display:flex;
+  gap:4px;
+  flex-wrap:wrap;
+}
+
+.statusMessage {
+  padding:32px;
+  text-align:center;
+  color:#64748b;
+}
+
+.fontMono {
+  font-family:monospace;
+  font-weight:600;
+}
+
+.pagination {
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:12px;
+  padding:12px 16px;
+  background:#f8fafc;
+  border-top:1px solid #e2e8f0;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+}
+
+.paginationButton {
+  height:32px;
+  padding:0 12px;
+  cursor:pointer;
+  background:#fff;
+  border:1px solid #cbd5e1;
+  border-radius:4px;
+  font-size:13px;
+  color:#475569;
+}
+
+.paginationButton:disabled {
+  cursor:not-allowed;
+  opacity:.5;
+}
+
+.paginationText {
+  font-size:13px;
+  font-weight:500;
+  color:#475569;
+}
+
+.retryButton {
+  margin-left:8px;
+  color:#3b82f6;
+  background:none;
+  border:none;
+  text-decoration:underline;
+  cursor:pointer;
+  font:inherit;
+}

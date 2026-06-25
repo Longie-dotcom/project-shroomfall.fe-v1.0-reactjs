@@ -3,13 +3,13 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
+import type { AttributeType } from "../../../enums/meta/effect/attribute-type";
 import type { AttributeGrowthValueDTO } from "./attribute-growth-value-dto";
 
 export interface AttributeValueDTO {
-  iD: string;
-  type: string;
+  iD?: string;
+  type: AttributeType;
   baseValue: number;
-  level: number;
   min: number;
   max: number;
   attributeGrowthValues: AttributeGrowthValueDTO[];
