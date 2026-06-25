@@ -186,7 +186,9 @@ export const EffectRowForm: React.FC<EffectRowFormProps> = ({
             {Object.values(EffectType).map(t => <option key={t} value={t}>{t}</option>)}
           </select>
         ) : (
-          <span className={styles.badge}>{enumToString(EffectType, effect.type) as EffectType}</span>
+          <span className={styles.badge}>
+            {effect && enumToString(EffectType, effect.type) as EffectType}
+          </span>
         )}
       </td>
 
@@ -208,7 +210,9 @@ export const EffectRowForm: React.FC<EffectRowFormProps> = ({
             {Object.values(AttributeType).map(attr => <option key={attr} value={attr}>{attr}</option>)}
           </select>
         ) : (
-          <span>{enumToString(AttributeType, effect.attributeType) as AttributeType}</span>
+          <span>
+            {enumToString(AttributeType, effect.attributeType) as AttributeType}
+          </span>
         )}
       </td>
 
@@ -231,7 +235,12 @@ export const EffectRowForm: React.FC<EffectRowFormProps> = ({
             {Object.values(AttributeType).map(attr => <option key={attr} value={attr}>{attr}</option>)}
           </select>
         ) : (
-          <span>{enumToString(AttributeType, effect.sourceType) as AttributeType || <em className={styles.dimmedText}>None</em>}</span>
+          <span>
+            {effect
+              ? enumToString(AttributeType, effect.sourceType) as AttributeType
+              : <em className={styles.dimmedText}>None</em>
+            }
+          </span>
         )}
       </td>
 
