@@ -30,6 +30,10 @@ export const EffectRowForm: React.FC<EffectRowFormProps> = ({
   onSuccessCallback,
   onCancelCallback
 }) => {
+  if (!effect && !isInitialCreateRow) {
+    return null;
+  }
+
   const { mutate: upsertEffect } = useUpsertEffectDefinition();
 
   // Tracks the active field cell being edited
