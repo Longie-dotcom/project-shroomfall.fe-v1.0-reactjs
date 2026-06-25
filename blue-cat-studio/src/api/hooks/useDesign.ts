@@ -165,12 +165,21 @@ export const useUpsertEntityDefinition = () => {
     mutationFn: async (dto: UpsertEntityDefinitionDTO): Promise<void> => {
       await apiClient.post('/design/entity-definition', dto);
     },
-    onSuccess: (data, variables) => {
-      queryClient.invalidateQueries({ queryKey: DESIGN_QUERY_KEYS.ENTITIES });
+
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: DESIGN_QUERY_KEYS.ENTITIES,
+      });
+
       if (variables.iD) {
-        queryClient.invalidateQueries({ queryKey: DESIGN_QUERY_KEYS.ENTITY_DETAIL(variables.iD) });
+        queryClient.invalidateQueries({
+          queryKey: DESIGN_QUERY_KEYS.ENTITY_DETAIL(variables.iD),
+        });
       }
-      queryClient.invalidateQueries({ queryKey: DESIGN_QUERY_KEYS.LOCALES });
+
+      queryClient.invalidateQueries({
+        queryKey: DESIGN_QUERY_KEYS.LOCALES,
+      });
     },
   });
 };
